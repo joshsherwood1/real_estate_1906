@@ -5,6 +5,7 @@ class House
     @price = price
     @address = address
     @rooms = []
+    @area_total = 0
   end
 
   def price
@@ -17,5 +18,14 @@ class House
 
   def rooms_from_category(category)
     @rooms.select{|room| room.category == category}
+  end
+
+  def area
+    @rooms.each do |room|
+      @area_total += room.area
+    end
+
+    @area_total
+
   end
 end
